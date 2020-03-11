@@ -1,0 +1,120 @@
+html {   scroll-behavior: smooth;}
+
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(rgb(245, 228, 228), rgb(245, 204, 217), rgb(240, 223, 223));
+ 
+}
+
+.navmain {
+    background-image: url(https://i.kym-cdn.com/photos/images/original/000/369/804/29d.png);
+    margin-bottom: 20px;
+}
+.pinkielogonav {
+    /* border: 2px solid rgb(104, 56, 56); */
+    text-align: center;
+    max-width: 170px;
+}
+.imglink {
+    /* border: 2px solid black; */
+    width: 200px;
+}
+.main {
+    
+    padding-top: 20px;
+    display: flex;
+
+    /* border: 2px solid black; */
+}
+.categoryButton{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.rollupbutton {
+    position: fixed;
+    font-size: 30px;
+    transition: 0.2s ease;
+    margin-left: 1000px;
+    bottom: 50px;
+    opacity: 0.4;
+}
+
+.rollupbutton:hover {
+    opacity:1;
+}
+.sidesection {
+    /* border: 2px solid black; */
+    padding-right: 25px;
+}
+
+.maintitle {
+    /* border: 2px solid rgb(104, 56, 56);  */
+    width: 40%;
+}
+
+.allSources {
+font-size: 20px;
+margin-top: 50px;
+margin-bottom: 20px;
+
+}
+.loadButtonstyle {
+    /* border: 2px solid rgb(104, 56, 56); */
+    width: 100%;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+
+}
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #8b64d3;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 5px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+ 
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(228, 169, 186);
+
+}
