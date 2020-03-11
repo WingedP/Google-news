@@ -12,7 +12,7 @@ let sourceNames = {}
 //////////////////////////////////////////////////////////
 let callAPI= async()=>{
     let apiKey ='cdf3e919cd7146bf9fb9962bf5171580'
-    let url=`http://newsapi.org/v2/everything?q=music&apiKey=${apiKey}`
+    let url=`https://newsapi.org/v2/everything?q=music&apiKey=${apiKey}`
 
     let data = await fetch(url);
     let result = await data.json();
@@ -28,7 +28,7 @@ let callAPI= async()=>{
 
 let categoriesAPI=async(category)=>{
     let apiKey ='cdf3e919cd7146bf9fb9962bf5171580'
-    let url=`http://newsapi.org/v2/top-headlines?category=${category}&apiKey=${apiKey}`
+    let url=`https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${apiKey}`
     let data = await fetch(url);
     let result = await data.json();
     
@@ -42,7 +42,7 @@ let categoriesAPI=async(category)=>{
 
 let loadMore=async()=>{
     let apiKey ='cdf3e919cd7146bf9fb9962bf5171580'
-    let url=`http://newsapi.org/v2/everything?q=game&apiKey=${apiKey}`
+    let url=`https://newsapi.org/v2/everything?q=game&apiKey=${apiKey}`
     let data = await fetch(url);
     let result = await data.json();
     let newData = result.articles
