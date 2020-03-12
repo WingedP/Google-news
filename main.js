@@ -2,7 +2,7 @@
 
 let newList = []
 let additionalList = []
-let pageNum = 1
+let page = 1;
 
 let selectedNewsource =[]
 let sourceNames = {}
@@ -12,17 +12,17 @@ let sourceNames = {}
 //////////////////////////////////////////////////////////
 let callAPI= async()=>{
     let apiKey ='cdf3e919cd7146bf9fb9962bf5171580'
-    let url=`https://newsapi.org/v2/everything?q=music&apiKey=${apiKey}`
+    let url=`https://newsapi.org/v2/everything?q=music&page=${page}&apiKey=${apiKey}`
 
     let data = await fetch(url);
     let result = await data.json();
 
-    newList = result.articles;
+    newList = newList.concat(result.articles);
     console.log("data:",data);
     console.log("json result:", result);
     console.log("article list:",newList);
-    pageNum++
     render(newList)
+    searchbySources()
 
 }
 
@@ -40,20 +40,32 @@ let categoriesAPI=async(category)=>{
     
 }
 
-let loadMore=async()=>{
-    let apiKey ='cdf3e919cd7146bf9fb9962bf5171580'
-    let url=`https://newsapi.org/v2/everything?q=game&apiKey=${apiKey}`
-    let data = await fetch(url);
-    let result = await data.json();
-    let newData = result.articles
-    pageNum++
-    console.log('New list exist', newList)
-    newList = newList.concat(newData)
-    render(newList)
-}
+
+//NHAN'S OLD "LOAD MORE" BUTTON//
+// let loadMore=async()=>{
+//     let apiKey ='cdf3e919cd7146bf9fb9962bf5171580'
+//     let url=`https://newsapi.org/v2/everything?q=game&apiKey=${apiKey}`
+//     let data = await fetch(url);
+//     let result = await data.json();
+//     let newData = result.articles
+//     pageNum++
+//     console.log('New list exist', newList)
+//     newList = newList.concat(newData)
+//     render(newList)
+// }
 
 
 
+
+// let searchbySources =()=>{
+//  let sourceNames = newList.map((item)=>item.source.name)
+//  console.log("source name here:", sourceNames)
+//  sourceNames.reduce((total, name)=>{
+//     console.log("total IS HERE:",total)
+//     if(name in total){total['name']++} else {total['name']=1}
+//     return total;
+//  },{})
+// }
 
 
 //////////////////////////////////////////////////////////
@@ -94,6 +106,12 @@ let renderArticleCount = (item) => {
         document.getElementById("numberOfArticles").innerHTML = `${item.length} of ${item.length}`;
     }
 
+
+//NEW "LOAD MORE" BUTTON//
+let loadMore = () => {
+    page++; //2
+    callAPI();
+  };
 
 
 callAPI()
